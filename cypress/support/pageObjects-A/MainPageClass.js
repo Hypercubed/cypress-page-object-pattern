@@ -1,27 +1,24 @@
-"use strict";
+import NavMenuClass from './NavigationMenuClass';
+import QueryPageClass from './NavigationMenuClass';
 
-
-class MainPageClass  {
+export default class MainPageClass  {
   constructor() {
     this.bannerElement = 'body > .banner';
+    this.navMenu = new NavMenuClass();
   }
 
   verifyElements() {
-    cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
-      const NavMenuClass = require('./NavigationMenuClass');
-      this.navMenu = new NavMenuClass();
+    return cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
       return this.navMenu.verifyElements();
     });
   }
 
   switchToQueryingPage() {
     return this.navMenu.switchToQueryingPage().then(() => {
-      const QueryPageClass = require('./QueryPageClass');
       cy.log('==> Finding Query Page');
-      cy.queryPage = new QueryPageClass();
-      return cy.queryPage.verifyElements();
+      const queryPage = new QueryPageClass();
+      return queryPage.verifyElements()
+        .then(() => queryPage);
     });
   }
 };
-
-module.exports = MainPageClass;

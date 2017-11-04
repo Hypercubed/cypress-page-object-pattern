@@ -1,7 +1,7 @@
 import { navMenu } from './NavigationMenuClass';
 import { queryPage } from './QueryPageClass';
 
-class MainPageClass  {
+export class MainPageClass  {
   constructor() {
     this.bannerElement = 'body > .banner';
   }

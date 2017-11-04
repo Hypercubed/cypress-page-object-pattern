@@ -1,13 +1,10 @@
-"use strict";
-// const AdminModeClass = require('./MainAppObjects/AdminModeClass');
-
-class NavMenuClass  {
+export default class NavMenuClass  {
   constructor() {
     this.navbarElement = 'body > .navbar';
   }
 
   verifyElements() {
-    cy.get(this.navbarElement).find('#navbar').should('be.visible');
+    return cy.get(this.navbarElement).find('#navbar').should('be.visible');
   }
 
   switchToQueryingPage() {
@@ -16,5 +13,3 @@ class NavMenuClass  {
     });
   }
 };
-
-module.exports = NavMenuClass;

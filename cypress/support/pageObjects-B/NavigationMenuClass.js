@@ -1,5 +1,5 @@
 
-class NavMenuClass  {
+export class NavMenuClass  {
   constructor() {
     this.navbarElement = 'body > .navbar';
   }

@@ -1,18 +1,14 @@
-"use strict";
+import NavMenuClass from './NavigationMenuClass';
 
-
-class QueryPageClass  {
+export default class QueryPageClass  {
   constructor() {
     this.bannerElement = 'body > .banner';
+    this.navMenu = new NavMenuClass();
   }
 
   verifyElements() {
-    cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
-      const NavMenuClass = require('./NavigationMenuClass');
-      this.navMenu = new NavMenuClass();
+    return cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
       return this.navMenu.verifyElements();
     });
   }
 };
-
-module.exports = QueryPageClass;
