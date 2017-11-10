@@ -164,7 +164,7 @@ describe('Page Object Pattern - C', () => {
 });
 ```
 
-## [Pattern D: page objects](cypress/integration/po-pattern-d.js)
+## [Pattern D: page modules](cypress/integration/po-pattern-d.js)
 
 In Pattern D we eliminate the objects themselves.  Instead each page module creates and exports public functions. These public function can be imported and used in an almost identical way the as pattern B and C.
 
