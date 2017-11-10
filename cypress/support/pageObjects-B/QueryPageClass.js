@@ -1,14 +1,16 @@
+import { BasePage } from './BasePageClass'
 import { navMenu } from './NavigationMenuClass';
 
-export class QueryPageClass  {
+export class QueryPage extends BasePage  {
   constructor() {
-    this.bannerElement = 'body > .banner';
+    super();
+    this.mainElement = 'body > .banner';
   }
 
   verifyElements() {
-    cy.get(this.bannerElement).find('.container h1').should('be.visible');
-    navMenu.verifyElements();
+    super.verifyElements();
+    cy.get(this.mainElement).find('.container h1').should('be.visible');
   }
 };
 
-export const queryPage = new QueryPageClass();
+export const queryPage = new QueryPage();

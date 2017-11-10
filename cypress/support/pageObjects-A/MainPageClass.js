@@ -1,14 +1,14 @@
-import NavMenuClass from './NavigationMenuClass';
-import QueryPageClass from './NavigationMenuClass';
+import BasePage from './BasePageClass';
+import QueryPage from './NavigationMenuClass';
 
-export default class MainPageClass  {
+export default class MainPage extends BasePage  {
   constructor() {
-    this.bannerElement = 'body > .banner';
-    this.navMenu = new NavMenuClass();
+    super();
+    this.mainElement = 'body > .banner';
   }
 
   verifyElements() {
-    return cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
+    return cy.get(this.mainElement).find('.container h1').should('be.visible').then(() => {
       return this.navMenu.verifyElements();
     });
   }
@@ -16,7 +16,7 @@ export default class MainPageClass  {
   switchToQueryingPage() {
     return this.navMenu.switchToQueryingPage().then(() => {
       cy.log('==> Finding Query Page');
-      const queryPage = new QueryPageClass();
+      const queryPage = new QueryPage();
       return queryPage.verifyElements()
         .then(() => queryPage);
     });

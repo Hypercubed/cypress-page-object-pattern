@@ -1,17 +1,17 @@
 
-export class NavMenuClass  {
+export class NavMenu  {
   constructor() {
-    this.navbarElement = 'body > .navbar';
+    this.mainElement = 'body > .navbar';
   }
 
   verifyElements() {
-    cy.get(this.navbarElement).find('#navbar').should('be.visible');
+    cy.get(this.mainElement).find('#navbar').should('be.visible');
   }
 
   switchToQueryingPage() {
-    cy.get(this.navbarElement).find('#navbar ul > li:first').click();
-    cy.get(this.navbarElement).find('#navbar ul > li:first > .dropdown-menu li:first').click();
+    cy.get(this.mainElement).find('#navbar ul > li:first').click();
+    cy.get(this.mainElement).find('#navbar ul > li:first > .dropdown-menu li:first').click();
   }
 };
 
-export const navMenu = new NavMenuClass();
+export const navMenu = new NavMenu();

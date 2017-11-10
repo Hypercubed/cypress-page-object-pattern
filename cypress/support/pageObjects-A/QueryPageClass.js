@@ -1,13 +1,13 @@
-import NavMenuClass from './NavigationMenuClass';
+import BasePage from './BasePageClass';
 
-export default class QueryPageClass  {
+export default class QueryPage extends BasePage  {
   constructor() {
-    this.bannerElement = 'body > .banner';
-    this.navMenu = new NavMenuClass();
+    super();
+    this.mainElement = 'body > .banner';
   }
 
   verifyElements() {
-    return cy.get(this.bannerElement).find('.container h1').should('be.visible').then(() => {
+    return cy.get(this.mainElement).find('.container h1').should('be.visible').then(() => {
       return this.navMenu.verifyElements();
     });
   }

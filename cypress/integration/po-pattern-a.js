@@ -5,7 +5,7 @@
  * 
  * **Do not do this!**
  */
-import MainPageClass from '../support/pageObjects-A/MainPageClass';
+import MainPage from '../support/pageObjects-A/MainPageClass';
 
 describe('Page Object Pattern - A', () => {
   context('Querying', () => {
@@ -14,7 +14,7 @@ describe('Page Object Pattern - A', () => {
     beforeEach(() => {
       return cy.visit('https://example.cypress.io/')
         .get('body > .banner h1').should('be.visible').then(() => {
-          mainPage = new MainPageClass();
+          mainPage = new MainPage();
           return mainPage.verifyElements();
         });
     });

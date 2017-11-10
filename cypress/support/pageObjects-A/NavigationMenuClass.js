@@ -1,15 +1,15 @@
-export default class NavMenuClass  {
+export default class NavMenu  {
   constructor() {
-    this.navbarElement = 'body > .navbar';
+    this.mainElement = 'body > .navbar';
   }
 
   verifyElements() {
-    return cy.get(this.navbarElement).find('#navbar').should('be.visible');
+    return cy.get(this.mainElement).find('#navbar').should('be.visible');
   }
 
   switchToQueryingPage() {
-    return cy.get(this.navbarElement).find('#navbar ul > li:first').click().then(() => {
-      return cy.get(this.navbarElement).find('#navbar ul > li:first > .dropdown-menu li:first').click();
+    return cy.get(this.mainElement).find('#navbar ul > li:first').click().then(() => {
+      return cy.get(this.mainElement).find('#navbar ul > li:first > .dropdown-menu li:first').click();
     });
   }
 };
