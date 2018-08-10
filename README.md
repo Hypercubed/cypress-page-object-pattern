@@ -65,7 +65,7 @@ describe('Page Object Pattern - A', () => {
 });
 ```
 
-## [Pattern B: page classes](cypress/integration/po-pattern-a.js)
+## [Pattern B: page classes](cypress/integration/po-pattern-b.js)
 
 In Pattern B we keep the page class definitions, which may be useful for inheritance, but each page class module exports a single page object instance of the class.  These instances can be used throughout the testing and within other classes.
 
@@ -118,7 +118,7 @@ describe('Page Object Pattern - B', () => {
 });
 ```
 
-## [Pattern C: page objects](cypress/integration/po-pattern-a.js)
+## [Pattern C: page objects](cypress/integration/po-pattern-c.js)
 
 In Pattern C we eliminate classes entirely.  Instead each page module creates and exports single page object instance. These instances are used in the same way as pattern B.
 
